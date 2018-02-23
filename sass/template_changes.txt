@@ -1,7 +1,0 @@
-﻿Edits to style.css to make template more compact, less whitespace, removed some parts didn’t want
-
-
-Turned .html into .php
-
-
-Turned header and footer code into php files to ‘include’ at every page, edited code to include links we want
