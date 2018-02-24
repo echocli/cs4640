@@ -1,7 +1,4 @@
-﻿Edits to style.css to make template more compact, less whitespace, removed some parts didn’t want
-
-
-Turned .html into .php
-
-
-Turned header and footer code into php files to ‘include’ at every page, edited code to include links we want
+-Edits to style.css to make template more compact, less whitespace, removed some parts didn’t want
+-Turned index.html and about.html into .php
+-Turned header and footer code into php files to ‘include’ at every page, edited code to include links we want
+-Put jQuery function at top of header.php to show 'active' <li>
