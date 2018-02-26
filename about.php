@@ -97,17 +97,17 @@
 			</div>
 		</div>
 
-		<div id="fh5co-sliver" style="background: white; padding-top: 1em; padding-bottom: 1em;">
+		<div id="fh5co-sliver" style="background: white; padding-top: 1em; padding-bottom: 0.1em;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<h2 style="color: black;">Meet the Team</h2>
+					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="height: 80px;">
+						<h2>Meet the Team</h2>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="fh5co-content-section"  class="border-bottom">
+		<div id="fh5co-content-section"  class="border-bottom" style="padding-top: 0.1em;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
@@ -119,7 +119,7 @@
 							<blockquote>
 								<p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
 							</blockquote>
-							<span>Steve Jobs, Apple Inc.</span>
+							<!--<span>Steve Jobs, Apple Inc.</span>-->
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
@@ -131,7 +131,6 @@
 							<blockquote>
 								<p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
 							</blockquote>
-							<span>Steve Jobs, Apple Inc.</span>
 						</div>
 					</div>
 					<!--
