@@ -66,8 +66,8 @@
 		
 		
 		<div class="fh5co-hero">
-			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg);">
+			<div class="fh5co-overlay" style="height: 350px;"></div>
+			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg); height: 350px;">
 				<div class="desc animate-box">
 					<h2>About Us</h2>
 					<span>Lovely Crafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FREEHTML5.co</a></span>
@@ -75,7 +75,7 @@
 			</div>
 
 		</div>
-		<!-- END: header -->
+		
 		
 		<div id="fh5co-about" class="border-bottom">
 			<div class="container">

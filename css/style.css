@@ -136,7 +136,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -149,7 +149,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover.fh5co-cover_2 {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -726,11 +726,11 @@ h3.heading-section:before {
   font-weight: 400;
 }
 
-#fh5co-services, #fh5co-about, #fh5co-contact {
+#fh5co-services, #fh5co-about-us, #fh5co-contact {
   padding: 7em 0;
 }
 @media screen and (max-width: 768px) {
-  #fh5co-services, #fh5co-about, #fh5co-contact {
+  #fh5co-services, #fh5co-about-us, #fh5co-contact {
     padding: 4em 0;
   }
 }
