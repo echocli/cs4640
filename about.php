@@ -65,7 +65,7 @@
 	<?php include 'nonmem_header.php';?>
 		
 		
-		<div class="fh5co-hero" style="height: 350px;">
+		<div class="fh5co-hero" style="height: 400px;">
 			<div class="fh5co-overlay" style="height: 350px;"></div>
 			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg); height: 350px;">
 				<div class="desc animate-box">
