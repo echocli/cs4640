@@ -9,7 +9,7 @@
 							<ul class="footer-menu">
 								<li><a href="index.php">Home</a></li>
 								<li><a href="aboutus.php">About Us</a></li>
-								<li><a href="#">Signup/Login</a></li>
+								<li><a href="signup.php">Signup/Login</a></li>
 							</ul>
 						</div>
 					</div>
