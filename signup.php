@@ -82,34 +82,40 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="First Name" required autocomplete="on" name="firstname" id="firstname" maxlength="50" />
+								<label>First name</label>
+								<input type="text" class="form-control" required autocomplete="on" name="firstname" id="firstname" maxlength="50" />
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Last Name" required autocomplete="on" name="lastname" id="lastname" maxlength="50" />
+								<label>Last name</label>
+								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>username</label>
+								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" />
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Username" required autocomplete="on" name="username" id="username" maxlength="50" />
+								<label>Email</label>	
+								<input type="email" class="form-control" required autocomplete="on" name="email" id="email" maxlength="50"/>
 							</div>
 						</div>
+					</div>
+					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email" required autocomplete="on" name="email" id="email" maxlength="50"/>
+								<label>Birthdate</label>
+								<input type="date" class="form-control" required name="birthdate" id="birthdate"/>
 							</div>
 						</div>
-						<div class="col-md-6">
-							<div class="form-group">
-								<input type="date" class="form-control" placeholder="Birthdate" required autocomplete="on" name="birthdate" id="birthdate" maxlength="50"/>
-							</div>
-						</div>
-						<div class="col-md-12">
-							<div class="form-group">
-								<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
-							</div>
-						</div>
+					</div>
+					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
 								<input type="submit" value="Send Message" class="btn btn-primary">
