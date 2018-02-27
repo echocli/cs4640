@@ -266,12 +266,11 @@
 		</div>
 		<!-- fh5co-blog-section -->
 
-		<div id="fh5co-sliver" style="background: transparent;">
+		<div id="fh5co-sliver" style="background-color:#F2E9E5">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<h2>Find love today!</h2>
-						<a href="signup.php" class="btn btn-primary">Signup</a>
+						<a href="signup.php" class="btn btn-primary">I'M IN, LET'S BEGIN!</a>
 					</div>
 				</div>
 			</div>
