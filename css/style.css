@@ -11,6 +11,14 @@
 *	Edit this section
 *
 * ======================================================= */
+
+label {
+  font-size: 20px; 
+  font-family:"Source Sans Pro", Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
 body {
   font-family: "Source Sans Pro", Arial, sans-serif;
   line-height: 1.5;
@@ -727,7 +735,7 @@ h3.heading-section:before {
 }
 
 #fh5co-services, #fh5co-about-us, #fh5co-contact {
-  padding: 7em 0;
+  padding: 3em 0;
 }
 @media screen and (max-width: 768px) {
   #fh5co-services, #fh5co-about-us, #fh5co-contact {
