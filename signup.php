@@ -114,6 +114,21 @@
 								<input type="date" class="form-control" required name="birthdate" id="birthdate"/>
 							</div>
 						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Gender</label>
+								<div class="select-style">
+                					<select name="gender">
+                    					<option value="F">Female</option>
+                    					<option value="M">Male</option>
+                    					<option value="TF">Trans Female</option>
+                    					<option value="TM">Trans Male</option>
+                    					<option value="NB">Nonbinary</option>
+                    				</select>
+                    			</div>
+
+							</div>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-md-12">

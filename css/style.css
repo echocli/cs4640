@@ -12,6 +12,12 @@
 *
 * ======================================================= */
 
+select {
+  width: 200px;
+  height: 40px;
+  font-size: 20px;
+}
+
 label {
   font-size: 20px; 
   font-family:"Source Sans Pro", Arial, sans-serif;
