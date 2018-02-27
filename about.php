@@ -97,7 +97,7 @@
 			</div>
 		</div>
 
-		<div id="fh5co-sliver" style="background: white; padding-top: 1em; padding-bottom: 0.1em;">
+		<div id="fh5co-sliver" style="background: transparent; padding-top: 1em; padding-bottom: 0.1em;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="height: 80px;">
