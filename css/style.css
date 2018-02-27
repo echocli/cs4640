@@ -785,9 +785,11 @@ h3.heading-section:before {
 #fh5co-contact .form-control:focus, #fh5co-contact .form-control:active {
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
+
 #fh5co-contact input[type="text"] {
   height: 50px;
 }
+
 #fh5co-contact .form-group {
   margin-bottom: 30px;
 }

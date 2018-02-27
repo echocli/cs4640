@@ -76,14 +76,16 @@
 		<!-- END: header -->
 	<script src="js/jquery.js"></script>
 	<script src="js/jquery.validate.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
 		$('#firstname').on('input', function() {
+			alert("hi");
 			var input=$(this);
 			var re = /^[a-zA-Z]+$/;
 			var is_firstname=re.test(input.val());
-			if(is_firstname){input.removeClass("invalid").addClass("valid");}
-			else{input.removeClass("valid").addClass("invalid");}
+			if(is_firstname){input.removeClass("form-control.error").addClass("form-control");}
+			else{input.removeClass("form-control").addClass("form-control.error");}
 		});
 
 		$("#signupform").validate({
@@ -126,14 +128,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>First name</label>
-								<input type="text" class="form-control" required autocomplete="on" name="firstname" id="firstname" maxlength="50" pattern="[A-Za-z]" title="Name must only be letters"/>
-								<span class="error">Field must only be letters</span>
+								<input type="text" class="form-control" required autocomplete="on" name="firstname" id="firstname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Last name</label>
-								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" />
+								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
 							</div>
 						</div>
 					</div>
@@ -141,13 +142,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Username</label>
-								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" />
+								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" pattern="[A-Za-z0-9]{1,50}" title="Username is only letters and numbers"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>	
-								<input type="email" class="form-control" name="email" id="email" maxlength="50"/>
+								<input type="email" class="form-control" name="email" id="email" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Email must follow @ . format"/>
 							</div>
 						</div>
 					</div>
