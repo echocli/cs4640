@@ -147,12 +147,12 @@
 		</div>
 		
 		<!-- fh5co-work-section -->
-		<div id="fh5co-sliver">
+		<div id="fh5co-sliver" style="background: transparent;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<h2>Start a Project</h2>
-						<a href="#" class="btn btn-primary">Get in Touch</a>
+						<h2>Find love today!</h2>
+						<a href="signup.php" class="btn btn-primary">Signup</a>
 					</div>
 				</div>
 			</div>
