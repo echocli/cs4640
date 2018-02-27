@@ -82,12 +82,27 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Name">
+								<input type="text" class="form-control" placeholder="First Name" required autocomplete="on" name="firstname" id="firstname" maxlength="50" />
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Email">
+								<input type="text" class="form-control" placeholder="Last Name" required autocomplete="on" name="lastname" id="lastname" maxlength="50" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Username" required autocomplete="on" name="username" id="username" maxlength="50" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="email" class="form-control" placeholder="Email" required autocomplete="on" name="email" id="email" maxlength="50"/>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="date" class="form-control" placeholder="Birthdate" required autocomplete="on" name="birthdate" id="birthdate" maxlength="50"/>
 							</div>
 						</div>
 						<div class="col-md-12">
@@ -102,68 +117,6 @@
 						</div>
 					</div>
 				</form>
-			</div>
-		</div>
-		
-		
-		<div id="fh5co-services">
-			<div class="container">
-				<div class="row">
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-browser"></i></span>
-									<h3>Web Development</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-mobile"></i></span>
-									<h3>Mobile Apps</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-tools"></i></span>
-									<h3>UX Design</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-video"></i></span>
-									<h3>Video Editing</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-search"></i></span>
-									<h3>SEO Ranking</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-							<div class="col-md-4 col-sm-4">
-								<div class="services animate-box">
-									<span><i class="icon-cloud"></i></span>
-									<h3>Cloud Based Apps</h3>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-								</div>
-							</div>
-						</div>
-			</div>
-		</div>
-		
-		<!-- fh5co-work-section -->
-		<div id="fh5co-start-project-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<h2>Start a Project</h2>
-						<a href="#" class="btn btn-primary">Get in Touch</a>
-					</div>
-				</div>
 			</div>
 		</div>
 		<!-- START a project -->
