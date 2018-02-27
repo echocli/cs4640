@@ -11,6 +11,67 @@
 *	Edit this section
 *
 * ======================================================= */
+
+/*signup.php style*/
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 9px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.tab-group li a:hover {
+  background: #d1c286;
+  color: #000000;
+  padding: 9px;
+}
+.tab-group .active a {
+  background: #d1c286;
+  color: #000000;
+  padding: 9px;
+}
+
+.tab-content > div:last-child {
+  display: none;
+  padding: 9px;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
 body {
   font-family: "Source Sans Pro", Arial, sans-serif;
   line-height: 1.5;

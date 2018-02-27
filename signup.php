@@ -61,169 +61,111 @@
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	
-	<?php include 'nonmem_header.php';?>
+
+		<?php include 'nonmem_header.php';?>
+		
+		<div class="fh5co-hero" style="height: 300px;">
+			<div class="fh5co-overlay" style="height: 300px;"></div>
+			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg); height: 300px;">
+				<div class="desc animate-box">
+					<h2>Join Today!</h2>
+				</div>
+			</div>
+
+		</div>
+		<!-- END: header -->
+
+		<div id="fh5co-contact" class="animate-box">
+
+			<div class="container">
+				<form action="#">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Name">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" class="form-control" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<input type="submit" value="Send Message" class="btn btn-primary">
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
 		
 		
-<li style="background-image: url(images/signup.jpg);">
-
-    <div class="form">
-      
-      <ul class="tab-group">
-        <li class="tab active"><a href="signup.php">Sign Up</a></li>
-        <li class="tab"><a href="login.php">Log In</a></li>
-      </ul>
-      
-      <div class="tab-content">
-        <div id="signup">   
-          <h1>Sign Up</h1>
-          
-          <form action="signup.php" method="post" name="signupform"> <!--onsubmit="return validate()"-->
-          <div class="field-wrap">
-            <label>
-              Username<span class="req"></span>
-            </label>
-            <input type="text"required autocomplete="on" name="usernameInput" id="usernameInput" maxlength="50" />
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Email Address<span class="req"></span>
-            </label>
-            <input type="email"required autocomplete="on" name="email" id="email" maxlength="50" />
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Address<span class="req"></span>
-            </label>
-            <input type="text"required autocomplete="on" name="address" id="address" maxlength="50" />
-          </div>
-
-          <div class="top-row">
-            <div class="field-wrap">
-              <label>
-                City<span class="req"></span>
-              </label>
-              <input type="text" required autocomplete="on" name="city" id="city" maxlength="50" />
-          </div>
-        
-          <div class="field-wrap">
-            <label>
-                State<span class="req"></span>
-              </label>
-            <div class="select-style">
-                <select name="state">
-                    <option value="AL">Alabama</option>
-                    <option value="AK">Alaska</option>
-                    <option value="AZ">Arizona</option>
-                    <option value="AR">Arkansas</option>
-                    <option value="CA">California</option>
-                    <option value="CO">Colorado</option>
-                    <option value="CT">Connecticut</option>
-                    <option value="DE">Delaware</option>
-                    <option value="DC">District of Columbia</option>
-                    <option value="FL">Florida</option>
-                    <option value="GA">Georgia</option>
-                    <option value="HI">Hawaii</option>
-                    <option value="ID">Idaho</option>
-                    <option value="IL">Illinois</option>
-                    <option value="IN">Indiana</option>
-                    <option value="IA">Iowa</option>
-                    <option value="KS">Kansas</option>
-                    <option value="KY">Kentucky</option>
-                    <option value="LA">Louisiana</option>
-                    <option value="ME">Maine</option>
-                    <option value="MD">Maryland</option>
-                    <option value="MA">Massachusetts</option>
-                    <option value="MI">Michigan</option>
-                    <option value="MN">Minnesota</option>
-                    <option value="MS">Mississippi</option>
-                    <option value="MO">Missouri</option>
-                    <option value="MT">Montana</option>
-                    <option value="NE">Nebraska</option>
-                    <option value="NV">Nevada</option>
-                    <option value="NH">New Hampshire</option>
-                    <option value="NJ">New Jersey</option>
-                    <option value="NM">New Mexico</option>
-                    <option value="NY">New York</option>
-                    <option value="NC">North Carolina</option>
-                    <option value="ND">North Dakota</option>
-                    <option value="OH">Ohio</option>
-                    <option value="OK">Oklahoma</option>
-                    <option value="OR">Oregon</option>
-                    <option value="PA">Pennsylvania</option>
-                    <option value="RI">Rhode Island</option>
-                    <option value="SC">South Carolina</option>
-                    <option value="SD">South Dakota</option>
-                    <option value="TN">Tennessee</option>
-                    <option value="TX">Texas</option>
-                    <option value="UT">Utah</option>
-                    <option value="VT">Vermont</option>
-                    <option value="VA">Virginia</option>
-                    <option value="WA">Washington</option>
-                    <option value="WV">West Virginia</option>
-                    <option value="WI">Wisconsin</option>
-                    <option value="WY">Wyoming</option>
-                  </select>
-                </div>
-            </div>
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Zip Code<span class="req"></span>
-            </label>
-            <input type="text"required autocomplete="off" name="zipcode" id="zipcode" maxlength="5" minlength="5" />
-          </div>
-
-          <div class="field-wrap">
-            <label>
-              Set A Password<span class="req"></span>
-            </label>
-            <input type="password"required autocomplete="off" name="passwordInput" id="passwordInput" minlength="8" maxlength="50"/>
-          </div>
-          
-          <button type="submit" id="btnSubmit" name="btnSubmit" class="button button-block"/>Get Started</button>
-
-          
-          </form>
-
-        </div>
-        
-        <div id="login">   
-          <h1>Welcome Back!</h1>
-          
-          <form action="/" method="post">
-          
-            <div class="field-wrap">
-            <label>
-              Email Address<span class="req">*</span>
-            </label>
-            <input type="email"required autocomplete="off"/>
-          </div>
-          
-          <div class="field-wrap">
-            <label>
-              Password<span class="req">*</span>
-            </label>
-            <input type="password"required autocomplete="off"/>
-          </div>
-          
-          <p class="forgot"><a href="#">Forgot Password?</a></p>
-          
-          <button class="button button-block"/>Log In</button>
-          
-          </form>
-
-        </div>
-        
-      </div><!-- tab-content -->
-      
-   </div> <!-- /form -->
-
-  
-  </li>
+		<div id="fh5co-services">
+			<div class="container">
+				<div class="row">
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-browser"></i></span>
+									<h3>Web Development</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-mobile"></i></span>
+									<h3>Mobile Apps</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-tools"></i></span>
+									<h3>UX Design</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-video"></i></span>
+									<h3>Video Editing</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-search"></i></span>
+									<h3>SEO Ranking</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+							<div class="col-md-4 col-sm-4">
+								<div class="services animate-box">
+									<span><i class="icon-cloud"></i></span>
+									<h3>Cloud Based Apps</h3>
+									<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+								</div>
+							</div>
+						</div>
+			</div>
+		</div>
+		
+		<!-- fh5co-work-section -->
+		<div id="fh5co-start-project-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center animate-box">
+						<h2>Start a Project</h2>
+						<a href="#" class="btn btn-primary">Get in Touch</a>
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- START a project -->
 
 		<?php include 'nonmem_footer.php';?>
