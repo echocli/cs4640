@@ -100,6 +100,58 @@
 				$("#lastname_err").hide();
 			}
 		} );
+		$('#username').on('input', function() { 
+			var input=$(this);
+			var re = /^[a-zA-Z0-9]+$/;
+			var is_username = re.test(input.val()); 
+			var error = $("#username_err").is(":visible");
+			if(!is_username){
+				$("#username_err").show();
+			}
+			else{
+				$("#username_err").hide();
+			}
+		} );
+		$('#email').on('input', function() { 
+			var input=$(this);
+			var re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+			var is_email = re.test(input.val()); 
+			var error = $("#email_err").is(":visible");
+			if(!is_email){
+				$("#email_err").show();
+			}
+			else{
+				$("#email_err").hide();
+			}
+		} );
+		/* PASSWORD CONFIRM CODE -- ALSO NEED TO VALIDATE GENDERS BEEN PICKED
+		$('#submitbtn').click(function() { 
+			var conpass = $("#confirm_password");
+			var pass = $("#password");
+			if(conpass != pass){
+				$("#confirmpass_err").show();
+			}
+			else{
+				$("#confirmpass_err").hide();
+			}
+		} );
+		*/
+		$('#birthdate').on('input', function() { 
+			var age =  18;
+			var mydate = new Date($("#birthdate").val());
+
+
+			var currdate = new Date();
+			currdate.setFullYear(currdate.getFullYear() - age);
+
+			if(currdate < mydate)
+			{
+			    $("#birthdate_err").show();
+			}
+			else{
+				 $("#birthdate_err").hide();
+			}
+		} );
 	});
 	</script>
 
@@ -127,12 +179,14 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Username</label>
+								<label hidden id="username_err" style="color: red; padding-left: 1em;"> Only letters and numbers allowed </label>
 								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" pattern="[A-Za-z0-9]{1,50}" title="Username is only letters and numbers"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Email</label>	
+								<label>Email</label>
+								<label hidden id="email_err" style="color: red; padding-left: 1em;"> Email must be valid </label>	
 								<input type="email" class="form-control" name="email" id="email" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Email must follow @ . format"/>
 							</div>
 						</div>
@@ -141,14 +195,16 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Birthdate</label>
-								<input type="date" class="form-control" required name="birthdate" id="birthdate"/>
+								<label hidden id="birthdate_err" style="color: red; padding-left: 1em;"> Must be at least 18 to register </label>
+								<input type="date" class="form-control" required name="birthdate" id="birthdate" min="1900-01-01" max="2000-01-01"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Gender</label>
 								<div class="select-style">
-                					<select name="gender">
+                					<select id= "gender" name="gender" >
+                						<option value="" disabled selected>Select option</option>
                     					<option value="F">Female</option>
                     					<option value="M">Male</option>
                     					<option value="TF">Trans Female</option>
@@ -169,7 +225,8 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Confirm password</label>	
+								<label>Confirm password</label>
+								<label hidden id="confirmpass_err" style="color: red; padding-left: 1em;"> Passwords must match </label>	
 								<input type="password" class="form-control" required name="confirm_password" id="confirm_password" minlength="8" />
 							</div>
 						</div>
@@ -177,7 +234,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input type="submit" value="Signup" class="btn btn-primary">
+								<input id="submitbtn" type="submit" value="Signup" class="btn btn-primary">
 							</div>
 						</div>
 					</div>
