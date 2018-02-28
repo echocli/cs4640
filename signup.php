@@ -74,52 +74,32 @@
 
 		</div>
 		<!-- END: header -->
-	<script src="js/jquery.js"></script>
-	<script src="js/jquery.validate.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script>
 	$(document).ready(function(){
-
-		$('form-control').css('border-bottom', '1px solid red');
-
-		$('#firstname').on('input', function() {
-			alert("hi");
+		$('#firstname').on('input', function() { 
 			var input=$(this);
 			var re = /^[a-zA-Z]+$/;
-			var is_firstname=re.test(input.val());
-			if(is_firstname){input.removeClass("form-control.error").addClass("form-control");}
-			else{input.removeClass("form-control").addClass("form-control.error");}
-		});
-
-		$("#signupform").validate({
-		  rules: {
-		    firstname: {
-		    	required: true,
-		      	email: true
-		    }
-		    email: {
-		      	required: true,
-		      	email: true
-		    }
-		  },
-		  messages: {
-		    firstname: "Enter your firstname",
-			lastname: "Enter your lastname",
-			username: {
-					required: "Enter a username",
-					minlength: jQuery.validator.format("Enter at least {0} characters"),
-					remote: jQuery.validator.format("{0} is already in use")
-			},
-			email: {
-					required: "Please enter a valid email address",
-					minlength: "Please enter a valid email address",
-					remote: jQuery.validator.format("{0} is already in use")
+			var is_firstname=re.test(input.val()); 
+			var error = $("#firstname_err").is(":visible");
+			if(!is_firstname){
+				$("#firstname_err").show();
 			}
-		  },
-		  errorPlacement: function(error, element) {
-				error.insertBefore(element);
+			else{
+				$("#firstname_err").hide();
 			}
-		});
+		} );
+		$('#lastname').on('input', function() { 
+			var input=$(this);
+			var re = /^[a-zA-Z]+$/;
+			var is_lastname = re.test(input.val()); 
+			var error = $("#lastname_err").is(":visible");
+			if(!is_lastname){
+				$("#lastname_err").show();
+			}
+			else{
+				$("#lastname_err").hide();
+			}
+		} );
 	});
 	</script>
 
@@ -130,13 +110,15 @@
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>First name</label>
-								<input type="text" class="form-control" required autocomplete="on" name="firstname" id="firstname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
+								<label id="firstname_label">First name</label>
+								<label hidden id="firstname_err" style="color: red; padding-left: 1em;"> Only letters allowed </label>
+								<input type="text" class="form-control" required autocomplete="on" name="firstname" id='firstname' maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Last name</label>
+								<label hidden id="lastname_err" style="color: red; padding-left: 1em;"> Only letters allowed </label>
 								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
 							</div>
 						</div>
@@ -214,8 +196,6 @@
 	<!-- END fh5co-wrapper -->
 
 	<!-- jQuery -->
-
-
 	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>

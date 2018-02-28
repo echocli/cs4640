@@ -12,23 +12,12 @@
 *
 * ======================================================= */
 
-.error{
-      display: none;
-      margin-left: 10px;
-    }   
-    
-  .error_show{
-    color: red;
-    margin-left: 10px;
-  }
-  
-  input.invalid, textarea.invalid{
-    border: 2px solid red;
-  }
-  
-  input.valid, textarea.valid{
-    border: 2px solid green;
-  }
+#fh5co-contact .errorlabel {
+  font-size: 10px;
+  font-family:"Source Sans Pro", Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+}
 
 select {
   width: 200px;
