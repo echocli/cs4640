@@ -66,19 +66,18 @@
 		
 		
 		<div class="fh5co-hero" style="height: 400px;">
-			<div class="fh5co-overlay" style="height: 350px;"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg); height: 350px;">
+			<div class="fh5co-overlay" style="height: 300px;"></div>
+			<div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
 				<div class="desc animate-box">
-					<h2>About Us</h2>
-					<span>Lovely Crafted by <a href="http://frehtml5.co/" target="_blank" class="fh5co-site-name">FREEHTML5.co</a></span>
+					<h2>Our Story</h2>
 				</div>
 			</div>
-
 		</div>
 		
-		
+
 		<div id="fh5co-about" class="border-bottom">
 			<div class="container">
+                <!--
 				<div class="row">
 					<div class="col-md-12 animate-box">
 						<figure>
@@ -86,21 +85,40 @@
 						</figure>
 					</div>
 				</div>
+                -->
 				<div class="row">
 					<div class="col-md-6 animate-box">
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+                        <p> We believe that online dating should be a multilayered process that goes beyond judging a person by their profile pic. We also believe that online dating should be fun and hassle-free. In 2018, we decided to create a website to achieve our vision of a customized online dating experience - one that would allow people with similar interests, hobbies, and lifestyles to find each other with a simple click of a button. Thus, baeWatch was born. </p>
 					</div>
 					<div class="col-md-6 animate-box">
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+						<p> baeWatch helps users around the world find people they might be interested in based on the things that personally matter to them - whether it's a person's height, their career, or their taste in music. The process is simple. You tell us what you're interested in, and we consult our magical database to find matches that fit your preferences. Registration is easy and free. Join our community today to begin your search! </p>
 					</div>
 				</div>
+                <div class="row" style="height: 90px;">
+                    <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                        <a href="signup.php" class="btn btn-primary">Find Love Today!</a>
+                    </div>
+                </div>
 			</div>
 		</div>
+
+        <!--
+        <div id="fh5co-sliver" style="background: transparent;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center animate-box">
+                        <a href="signup.php" class="btn btn-primary">Find Love Today!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
 
 		<div id="fh5co-sliver" style="background: transparent; padding-top: 1em; padding-bottom: 0.1em;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="height: 80px;">
+					<div class="col-md-8 col-md-offset-2 text-center animate-box" style="height: 90px;">
 						<h2>Meet the Team</h2>
 					</div>
 				</div>
@@ -112,19 +130,19 @@
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
 						<div class="fh5co-testimonial text-center animate-box">
-							<h2>What Others Think</h2>
+							<h2>Yuyi Taylor</h2>
 							<figure>
-								<img src="images/user-1.jpg" alt="user">
+								<img src="images/yuyi.jpg" alt="user">
 							</figure>
 							<blockquote>
-								<p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
+                                <p>Yuyi is in her third year at UVA and pursuing a bachelor's in computer science. Other interests include web design, music, blogging, dogs, and desserts. </p>
 							</blockquote>
 							<!--<span>Steve Jobs, Apple Inc.</span>-->
 						</div>
 					</div>
 					<div class="col-md-6 col-sm-6">
 						<div class="fh5co-testimonial text-center animate-box">
-							<h2>What Others Think</h2>
+							<h2>Echo Li</h2>
 							<figure>
 								<img src="images/user-1.jpg" alt="user">
 							</figure>
@@ -146,17 +164,7 @@
 			</div>
 		</div>
 		
-		<!-- fh5co-work-section -->
-		<div id="fh5co-sliver" style="background: transparent;">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center animate-box">
-						<h2>Find love today!</h2>
-						<a href="signup.php" class="btn btn-primary">Signup</a>
-					</div>
-				</div>
-			</div>
-		</div>
+
 		<!-- START a project -->
 
 		<?php include 'nonmem_footer.php';?>

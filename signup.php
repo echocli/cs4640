@@ -66,7 +66,7 @@
 		
 		<div class="fh5co-hero" style="height: 300px;">
 			<div class="fh5co-overlay" style="height: 300px;"></div>
-			<div class="fh5co-cover text-center" style="background-image: url(images/work-1.jpg); height: 300px;">
+			<div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
 				<div class="desc animate-box">
 					<h2 style="padding-top: 0.5em;">Join Today!</h2>
 				</div>

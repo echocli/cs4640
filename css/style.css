@@ -377,7 +377,8 @@ figure {
 #fh5co-logo {
   position: relative;
   z-index: 2;
-  font-size: 26px;
+  font-size: 50px;
+  
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 35px;
