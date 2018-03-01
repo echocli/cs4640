@@ -144,7 +144,7 @@
 						<div class="fh5co-testimonial text-center animate-box">
 							<h2>Echo Li</h2>
 							<figure>
-								<img src="images/user-1.jpg" alt="user">
+								<img src="images/echopic.png" alt="user">
 							</figure>
 							<blockquote>
 								<p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
