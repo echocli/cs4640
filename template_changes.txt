@@ -6,3 +6,4 @@
 -Put inline css style in about.php on 'Meet Us' section to make smaller and less whitespace
 -Changed h2 color in fh5co-sliver and fh5co-testimonial in style.css
 -Lots of changes to contact.html. Turned into signup.php. Used jQuery to validate user input. Also have html regex checks (will probably be taken out later).
+-Added select and label to style.css
