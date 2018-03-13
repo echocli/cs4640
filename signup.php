@@ -1,4 +1,118 @@
+<script>
+function userTaken()
+{
+  $(document).ready(function(){
+		//$("#username_err").hide();
+		$("#username_err2").show();	
+	} );
+}
+function userNotTaken()
+{
+  $(document).ready(function(){
+		//$("#username_err").hide();
+		$("#username_err2").hide();	
+	} );
+}
+function allValid(){
+	$(document).ready(function(){
+		var error = $("#email_err").is(":visible");
+	} );
+}
+	
+</script>
+<?php
 
+$link = mysqli_connect("localhost", "root", "p", "baewatch");
+ 
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+//header("Location: index.php");
+if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['username']) && isset($_POST['email']) && isset($_POST['birthdate']) && isset($_POST['gender']) && isset($_POST['password'])){
+
+	//header("Location: index.php");
+
+	$firstnameInsert = $_POST['firstname'];
+    $lastnameInsert = $_POST['lastname'];
+    $usernameInsert = $_POST['username'];
+    $emailInsert = $_POST['email'];
+    $birthdateInsert = $_POST['birthdate'];
+    $genderInsert = $_POST['gender'];
+    $passwordInsert = password_hash($_POST['confirm_password'], PASSWORD_DEFAULT);
+
+	$stmt = $link->prepare("SELECT * FROM users WHERE username = ?");
+	$stmt->bind_param("s", $usernameInsert);
+	$result = $stmt->execute();
+
+	$assoc_array = array();
+	while($row = $stmt->fetch()){
+		array_push($assoc_array, $row);
+	}
+    if (count($assoc_array) >= 1) {
+      echo '<script> userTaken() </script>';
+      //echo '<script> alert("hi"); </script>';
+    }
+    else {
+      //$sql = "INSERT INTO users (name, email, address, city, state, zipcode, password) 
+      //VALUES ('$usernameInsert', '$emailInsert', '$addressInsert', '$cityInsert', '$stateInsert', '$zipcodeInsert', '$passwordInsert')";
+     echo '<script> userNotTaken() </script>';
+
+     $stmt_two = $link->prepare("INSERT INTO users (firstname, lastname, username, email, birthdate, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
+	
+	 $stmt_two->bind_param("sssssss", $firstnameInsert, $lastnameInsert, $usernameInsert, $emailInsert, $birthdateInsert, $genderInsert, $passwordInsert);
+
+
+      if($stmt_two->execute()){
+          echo "Records added successfully.";
+          //header("Location: success.php");
+          $stmt_two->close();
+		  //$link->close();
+      } else{
+      	
+          echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+          
+      }
+     // function SendMail( $ToEmail) {
+      require 'PHPMailer/PHPMailerAutoload.php';
+
+      $mail = new PHPMailer;
+
+      $mail->SMTPDebug = 4;                               // Enable verbose debug output
+
+      $mail->isSMTP();                                      // Set mailer to use SMTP
+      $mail->Host = 'smtp.gmail.com;smtp1.gmail.com';  // Specify main and backup SMTP servers
+      $mail->SMTPAuth = true;                               // Enable SMTP authentication
+      $mail->Username = 'baewatch.help@gmail.com';                 // SMTP username
+      $mail->Password = 'HelloHello!';                           // SMTP password
+      $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+      $mail->Port = 587;                                    // TCP port to connect to
+
+      $mail->setFrom('baewatch.help@gmail.com', 'AltEx Support');
+      $mail->addAddress($emailInsert, $usernameInsert);     // Add a recipient
+
+      $mail->isHTML(true);                                  // Set email format to HTML
+
+      $mail->Subject = 'Welcome to AltEx!';
+      $mail->Body    = 'Thanks for joining! We look forward to you exploring your reality. <br> <br> Sincerely, <br> AltEx Team';
+      //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+      if(!$mail->send()) {
+          echo 'Message could not be sent.';
+          echo 'Mailer Error: ' . $mail->ErrorInfo;
+      } else {
+          echo 'Message has been sent';
+      }
+    
+    //header("Location: login.php");
+    	//$link->close();
+    }
+}
+
+// Close connection
+mysqli_close($link);
+
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -62,18 +176,41 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
 
-		<?php include 'nonmem_header.php';?>
-		
-		<div class="fh5co-hero" style="height: 300px;">
-			<div class="fh5co-overlay" style="height: 300px;"></div>
-			<div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
-				<div class="desc animate-box">
-					<h2 style="padding-top: 0.5em;">Join Today!</h2>
-				</div>
-			</div>
+	<?php 
+		include 'nonmem_header.php';
 
+		function isTaken($name){
+			$usernameIn = $name;
+		    
+		    $st = $link->prepare("SELECT * FROM users WHERE username = ?");
+			$st->bind_param("s", $usernameIn);
+			$result = $stmt->execute();
+			$assoc_array = array();
+			while($row = $stmt->fetch()){
+				array_push($assoc_array, $row);
+			}
+		    if (count($assoc_array) >= 1) {
+		      	echo "false";
+		    }
+		    else{
+		    	echo "true";
+		    }
+
+		}
+	?>
+		
+	<div class="fh5co-hero" style="height: 300px;">
+		<div class="fh5co-overlay" style="height: 300px;"></div>
+		<div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
+			<div class="desc animate-box">
+				<h2 style="padding-top: 0.5em;">Join Today!</h2>
+			</div>
 		</div>
+
+	</div>
 		<!-- END: header -->
+
+
 	<script>
 	$(document).ready(function(){
 		$('#firstname').on('input', function() { 
@@ -111,6 +248,7 @@
 			else{
 				$("#username_err").hide();
 			}
+
 		} );
 		$('#email').on('input', function() { 
 			var input=$(this);
@@ -152,13 +290,33 @@
 				 $("#birthdate_err").hide();
 			}
 		} );
+		$('#confirm_password').on('input', function() { 
+			var input=$(this).val();
+			var pass = $("#password").val();
+			if(input != pass){
+				$("#confirmpass_err").show();
+			}
+			else{
+				$("#confirmpass_err").hide();
+			}
+		} );
+		$('#password').on('input', function() { 
+			var input=$(this).val();
+			var pass = $("#confirm_password").val();
+			if(input != pass){
+				$("#confirmpass_err").show();
+			}
+			else{
+				$("#confirmpass_err").hide();
+			}
+		} );
 	});
 	</script>
 
 		<div id="fh5co-contact" class="animate-box">
 
 			<div class="container">
-				<form action="signup.php" method="post" name="signupform">
+				<form action="" method="post" name="signupform">
 					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
@@ -180,6 +338,7 @@
 							<div class="form-group">
 								<label>Username</label>
 								<label hidden id="username_err" style="color: red; padding-left: 1em;"> Only letters and numbers allowed </label>
+								<label hidden id="username_err2" style="color: red; padding-left: 1em;"> Username is already taken </label>
 								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" pattern="[A-Za-z0-9]{1,50}" title="Username is only letters and numbers"/>
 							</div>
 						</div>
@@ -234,7 +393,7 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<input id="submitbtn" type="submit" value="Signup" class="btn btn-primary">
+								<input id="submitbtn" name="submitbtn" type="submit" value="Signup" class="btn btn-primary">
 							</div>
 						</div>
 					</div>
