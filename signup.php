@@ -1,16 +1,12 @@
-<script>
+<script type="text/javascript">
 function userTaken()
 {
-  $(document).ready(function(){
-		//$("#username_err").hide();
-		$("#username_err2").show();	
-	} );
+	alert("Username is taken");
 }
 function userNotTaken()
 {
-  $(document).ready(function(){
-		//$("#username_err").hide();
-		$("#username_err2").hide();	
+  	$(document).ready(function(){
+		$("#username_err2").hide();
 	} );
 }
 function allValid(){
@@ -50,13 +46,13 @@ if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['la
 		array_push($assoc_array, $row);
 	}
     if (count($assoc_array) >= 1) {
-      echo '<script> userTaken() </script>';
+      echo '<script> userTaken(); </script>';
       //echo '<script> alert("hi"); </script>';
     }
     else {
       //$sql = "INSERT INTO users (name, email, address, city, state, zipcode, password) 
       //VALUES ('$usernameInsert', '$emailInsert', '$addressInsert', '$cityInsert', '$stateInsert', '$zipcodeInsert', '$passwordInsert')";
-     echo '<script> userNotTaken() </script>';
+     echo '<script> userNotTaken(); </script>';
 
      $stmt_two = $link->prepare("INSERT INTO users (firstname, lastname, username, email, birthdate, gender, password) VALUES (?, ?, ?, ?, ?, ?, ?)");
 	
@@ -322,14 +318,14 @@ mysqli_close($link);
 							<div class="form-group">
 								<label id="firstname_label">First name</label>
 								<label hidden id="firstname_err" style="color: red; padding-left: 1em;"> Only letters allowed </label>
-								<input type="text" class="form-control" required autocomplete="on" name="firstname" id='firstname' maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
+								<input type="text" class="form-control" required autocomplete="on" name="firstname" id='firstname' maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Last name</label>
 								<label hidden id="lastname_err" style="color: red; padding-left: 1em;"> Only letters allowed </label>
-								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters"/>
+								<input type="text" class="form-control" required autocomplete="on" name="lastname" id="lastname" maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters" value="<?php echo isset($_POST['lastname']) ? $_POST['lastname'] : '' ?>"/>
 							</div>
 						</div>
 					</div>
@@ -339,14 +335,14 @@ mysqli_close($link);
 								<label>Username</label>
 								<label hidden id="username_err" style="color: red; padding-left: 1em;"> Only letters and numbers allowed </label>
 								<label hidden id="username_err2" style="color: red; padding-left: 1em;"> Username is already taken </label>
-								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" pattern="[A-Za-z0-9]{1,50}" title="Username is only letters and numbers"/>
+								<input type="text" class="form-control" required autocomplete="on" name="username" id="username" maxlength="50" pattern="[A-Za-z0-9]{1,50}" title="Username is only letters and numbers" value="<?php echo isset($_POST['username']) ? $_POST['username'] : '' ?>"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>
 								<label hidden id="email_err" style="color: red; padding-left: 1em;"> Email must be valid </label>	
-								<input type="email" class="form-control" name="email" id="email" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Email must follow @ . format"/>
+								<input type="email" class="form-control" name="email" id="email" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Email must follow @ . format" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>"/>
 							</div>
 						</div>
 					</div>
@@ -355,14 +351,14 @@ mysqli_close($link);
 							<div class="form-group">
 								<label>Birthdate</label>
 								<label hidden id="birthdate_err" style="color: red; padding-left: 1em;"> Must be at least 18 to register </label>
-								<input type="date" class="form-control" required name="birthdate" id="birthdate" min="1900-01-01" max="2000-01-01"/>
+								<input type="date" class="form-control" required name="birthdate" id="birthdate" min="1900-01-01" max="2000-01-01" value="<?php echo isset($_POST['birthdate']) ? $_POST['birthdate'] : '' ?>"/>
 							</div>
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Gender</label>
 								<div class="select-style">
-                					<select id= "gender" name="gender" >
+                					<select required id= "gender" name="gender" >
                 						<option value="" disabled selected>Select option</option>
                     					<option value="F">Female</option>
                     					<option value="M">Male</option>
