@@ -1,18 +1,7 @@
 <script type="text/javascript">
 function userTaken()
 {
-	alert("Username is taken");
-}
-function userNotTaken()
-{
-  	$(document).ready(function(){
-		$("#username_err2").hide();
-	} );
-}
-function allValid(){
-	$(document).ready(function(){
-		var error = $("#email_err").is(":visible");
-	} );
+	alert("Username and/or Email is taken");
 }
 	
 </script>
@@ -37,18 +26,34 @@ if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['la
     $genderInsert = $_POST['gender'];
     $passwordInsert = password_hash($_POST['confirm_password'], PASSWORD_DEFAULT);
 
-	$stmt = $link->prepare("SELECT * FROM users WHERE username = ?");
-	$stmt->bind_param("s", $usernameInsert);
+	$stmt = $link->prepare("SELECT * FROM users WHERE username = ? OR email = ?");
+	$stmt->bind_param("ss", $usernameInsert, $emailInsert);
 	$result = $stmt->execute();
 
+	/*$stem = $link->prepare("SELECT * FROM users WHERE email = ?");
+	$stem->bind_param("s", $emailInsert);
+	$res = $stem->execute();*/
+	//check if username is taken
 	$assoc_array = array();
 	while($row = $stmt->fetch()){
 		array_push($assoc_array, $row);
 	}
+	//check is email is taken
+	/*
+	$assoc_array_em = array();
+	while($row_em = $stem->fetch()){
+		array_push($assoc_array_em, $row_em);
+	}*/
+	//if both are taken
+	/*if (count($assoc_array_em) >= 1 && count($assoc_array) >= 1) {
+      echo '<script> bothTaken(); </script>';  
+    } */
     if (count($assoc_array) >= 1) {
-      echo '<script> userTaken(); </script>';
-      //echo '<script> alert("hi"); </script>';
-    }
+      echo '<script> userTaken(); </script>'; 
+    }/*
+    else if (count($assoc_array_em) >= 1) {
+      echo '<script> emailTaken(); </script>';
+    }*/
     else {
       //$sql = "INSERT INTO users (name, email, address, city, state, zipcode, password) 
       //VALUES ('$usernameInsert', '$emailInsert', '$addressInsert', '$cityInsert', '$stateInsert', '$zipcodeInsert', '$passwordInsert')";
@@ -72,25 +77,25 @@ if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['la
      // function SendMail( $ToEmail) {
       require 'PHPMailer/PHPMailerAutoload.php';
 
-      $mail = new PHPMailer;
+      $mail = new PHPMailer(true);
 
       $mail->SMTPDebug = 4;                               // Enable verbose debug output
 
       $mail->isSMTP();                                      // Set mailer to use SMTP
-      $mail->Host = 'smtp.gmail.com;smtp1.gmail.com';  // Specify main and backup SMTP servers
+      $mail->Host = 'smtp1.gmail.com;smtp2.gmail.com';  // Specify main and backup SMTP servers
       $mail->SMTPAuth = true;                               // Enable SMTP authentication
       $mail->Username = 'baewatch.help@gmail.com';                 // SMTP username
       $mail->Password = 'HelloHello!';                           // SMTP password
       $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
       $mail->Port = 587;                                    // TCP port to connect to
 
-      $mail->setFrom('baewatch.help@gmail.com', 'AltEx Support');
+      $mail->setFrom('baewatch.help@gmail.com', 'baeWatch Support');
       $mail->addAddress($emailInsert, $usernameInsert);     // Add a recipient
 
       $mail->isHTML(true);                                  // Set email format to HTML
 
-      $mail->Subject = 'Welcome to AltEx!';
-      $mail->Body    = 'Thanks for joining! We look forward to you exploring your reality. <br> <br> Sincerely, <br> AltEx Team';
+      $mail->Subject = 'Welcome to baeWatch!';
+      $mail->Body    = 'Thanks for joining! We look forward to you exploring your options. <br> <br> Sincerely, <br> baeWatch Team';
       //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
       if(!$mail->send()) {
