@@ -7,7 +7,7 @@ function invalid()
 
 <?php
 
-$link = mysqli_connect("localhost", "root", "p", "phpmyadmin");
+$link = mysqli_connect("localhost", "yuyitaylor", "demeyuma1", "phpmyadmin");
  
 // Check connection
 if($link === false){
@@ -139,7 +139,7 @@ mysqli_close($link);
 		<div class="fh5co-overlay" style="height: 300px;"></div>
 		<div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
 			<div class="desc animate-box">
-				<h2 style="padding-top: 0.5em;">Join Today!</h2>
+				<h2 style="padding-top: 0.5em;">Welcome Back!</h2>
 			</div>
 		</div>
 
@@ -189,29 +189,29 @@ mysqli_close($link);
 
 		<div id="fh5co-contact" class="animate-box">
 
-			<div class="container" style="margin: auto; float: center;">
-				<form action="" method="post" name="signupform">
-					<div class="row" style="">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Email</label>
+<div class="container" style="text-align: center; width: 50%; align-content: center;">
+				<form action="" method="post" name="signupform" style="text-align: center; width: 100%;">
+					<div class="row" style="text-align: center; width: 100%;">
+						<div class="col-md-6" style="text-align: center; width: 100%;">
+							<div class="form-group" style="text-align: center; width: 100%;">
+								<label style="text-align: center; width: 100%;"> Email or Username</label>
 								<label hidden id="email_err" style="color: red; padding-left: 1em;"> Email must be valid </label>	
 								<input type="email" class="form-control" name="email" id="email" maxlength="50" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Email must follow @ . format" value="<?php echo isset($_POST['email']) ? $_POST['email'] : '' ?>"/>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Password</label>
+						<div class="col-md-6" style="text-align: center; width: 100%;>
+							<div class="form-group" style="text-align: center; width: 100%;">
+								<label style="text-align: center; width: 100%;" >Password</label>
 								<input type="password" class="form-control" required name="password" id="password" minlength="8"/>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-12">
+						<div class="col-md-12" style="text-align: center; width: 100%;>
 							<div class="form-group">
-								<input id="submitbtn" name="submitbtn" type="submit" value="Login" class="btn btn-primary">
+								<input id="submitbtn" name="submitbtn" type="submit" value="Login" class="btn btn-primary" >
 							</div>
 						</div>
 					</div>
