@@ -189,9 +189,9 @@ mysqli_close($link);
 
 		<div id="fh5co-contact" class="animate-box">
 
-			<div class="container" style="margin: auto; float: center;">
+			<div class="container">
 				<form action="" method="post" name="signupform">
-					<div class="row" style="">
+					<div class="row">
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Email</label>
