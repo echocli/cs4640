@@ -74,15 +74,21 @@ if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['la
           echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
           
       }
+
      // function SendMail( $ToEmail) {
-      require 'PHPMailer/PHPMailerAutoload.php';
+      require "PHPMailer/src/PHPMailer.php";
+      require "PHPMailer/src/OAuth.php";
+      require "PHPMailer/src/SMTP.php";
+      require "PHPMailer/src/POP3.php";
+      require "PHPMailer/src/Exception.php";
 
-      $mail = new PHPMailer(true);
 
-      $mail->SMTPDebug = 4;                               // Enable verbose debug output
+      $mail = new PHPMailer\PHPMailer\PHPMailer();
+
+      //$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
       $mail->isSMTP();                                      // Set mailer to use SMTP
-      $mail->Host = 'smtp1.gmail.com;smtp2.gmail.com';  // Specify main and backup SMTP servers
+      $mail->Host = 'smtp.gmail.com;';  // Specify main and backup SMTP servers
       $mail->SMTPAuth = true;                               // Enable SMTP authentication
       $mail->Username = 'baewatch.help@gmail.com';                 // SMTP username
       $mail->Password = 'HelloHello!';                           // SMTP password
@@ -94,10 +100,17 @@ if (isset($_POST["submitbtn"]) && isset($_POST['firstname']) && isset($_POST['la
 
       $mail->isHTML(true);                                  // Set email format to HTML
 
-      $mail->Subject = 'Welcome to baeWatch!';
-      $mail->Body    = 'Thanks for joining! We look forward to you exploring your options. <br> <br> Sincerely, <br> baeWatch Team';
+      $mail->Subject = 'Welcome to baeWatch, '. $firstnameInsert. '!';
+      //$mail->AddEmbeddedImage('images/email.gif', 'jake');
+      $mail->Body    = 'Thanks for joining! We look forward to you finding the one! <br> <br> <img src="https://media1.tenor.com/images/94d31b39f65d8bf4fd3e0aa1c1d0d6a8/tenor.gif?itemid=4347501" style="height: 60%; width: 60%;"/> <br> <br> Sincerely, <br> baeWatch Team';
       //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
+      $mail->SMTPOptions = array(
+		    'ssl' => array(
+		        'verify_peer' => false,
+		        'verify_peer_name' => false,
+		        'allow_self_signed' => true
+		    )
+		);
       if(!$mail->send()) {
           echo 'Message could not be sent.';
           echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -216,7 +229,7 @@ mysqli_close($link);
 	$(document).ready(function(){
 		$('#firstname').on('input', function() { 
 			var input=$(this);
-			var re = /^[a-zA-Z]+$/;
+			var re = /^[a-zA-Z\-\s]+$/;
 			var is_firstname=re.test(input.val()); 
 			var error = $("#firstname_err").is(":visible");
 			if(!is_firstname){
@@ -323,7 +336,7 @@ mysqli_close($link);
 							<div class="form-group">
 								<label id="firstname_label">First name</label>
 								<label hidden id="firstname_err" style="color: red; padding-left: 1em;"> Only letters allowed </label>
-								<input type="text" class="form-control" required autocomplete="on" name="firstname" id='firstname' maxlength="50" pattern="[A-Za-z]{1,50}" title="Name must only be letters" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>"/>
+								<input type="text" class="form-control" required autocomplete="on" name="firstname" id='firstname' maxlength="50" pattern="[A-Za-z\-\s]{1,50}" title="Name must only be letters" value="<?php echo isset($_POST['firstname']) ? $_POST['firstname'] : '' ?>"/>
 							</div>
 						</div>
 						<div class="col-md-6">
