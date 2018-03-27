@@ -7,7 +7,7 @@ function userTaken()
 </script>
 <?php
 
-$link = mysqli_connect("localhost", "yuyitaylor", "demeyuma1", "baewatch");
+$link = mysqli_connect("localhost", "root", "p", "baewatch");
  
 // Check connection
 if($link === false){
