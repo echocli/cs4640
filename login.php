@@ -18,8 +18,8 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
    // $password = $_POST['password'];
 	$passwordInsert = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	echo $email;
-	$stmt = $link->prepare("SELECT password FROM users WHERE password = ? AND (username = ? OR email = ?)");
-	$stmt->bind_param("sss", $passwordInsert, $email, $email);
+	$stmt = $link->prepare("SELECT * FROM users WHERE (username = ? OR email = ?)");
+	$stmt->bind_param("ss", $email, $email);
 	$result = $stmt->execute();
 	echo $passwordInsert;
 	//var_dump($this->db->error);
@@ -27,10 +27,10 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
 	while($row = $stmt->fetch()){
 		array_push($assoc_array, $row);
 	}
-	echo $assoc_array[0];
+	//echo $assoc_array[0];
 	//if(password_verify($_POST["password"], $assoc_array["password"]))
    // $row=mysqli_fetch_array($query);
-    if (password_verify($_POST["password"], $assoc_array[row['password']]))
+    if (count($assoc_array) >= 1)
     {
         session_start();
         $_SESSION['username'] = $username;
