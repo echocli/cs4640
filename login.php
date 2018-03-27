@@ -6,7 +6,7 @@ function invalid()
 </script>
 
 <?php
-$link = mysqli_connect("localhost", "root", "p", "phpmyadmin");
+$link = mysqli_connect("localhost", "root", "p", "baewatch");
  
 // Check connection
 if($link === false){
@@ -14,20 +14,23 @@ if($link === false){
 }
 if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['password']) ) {
     $email = $_POST['email'];
+    //$user = $_POST['email'];
    // $password = $_POST['password'];
 	$passwordInsert = password_hash($_POST['password'], PASSWORD_DEFAULT);
-
-	$isUser = $link->prepare("SELECT password FROM users WHERE username=? OR email=?");
-	$isUser->bind_param("ss", $email, $email);
-	$result = $isUser->execute();
+	echo $email;
+	$stmt = $link->prepare("SELECT password FROM users WHERE password = ? AND (username = ? OR email = ?)");
+	$stmt->bind_param("sss", $passwordInsert, $email, $email);
+	$result = $stmt->execute();
+	echo $passwordInsert;
 	//var_dump($this->db->error);
 	$assoc_array = array();
-	while($row = $isUser->fetch()){
+	while($row = $stmt->fetch()){
 		array_push($assoc_array, $row);
 	}
+	echo $assoc_array[0];
 	//if(password_verify($_POST["password"], $assoc_array["password"]))
    // $row=mysqli_fetch_array($query);
-    if (password_verify($_POST["password"], $assoc_array["password"]))
+    if (password_verify($_POST["password"], $assoc_array[row['password']]))
     {
         session_start();
         $_SESSION['username'] = $username;
