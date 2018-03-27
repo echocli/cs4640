@@ -16,32 +16,25 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
     $email = $_POST['email'];
     //$user = $_POST['email'];
    // $password = $_POST['password'];
-	$passwordInsert = password_hash($_POST['password'], PASSWORD_DEFAULT);
-	echo $email;
-	$stmt = $link->prepare("SELECT * FROM users WHERE (username = ? OR email = ?)");
+	$passwordInsert = $_POST['password'];
+	//echo $email;
+	//echo $passwordInsert;
+	$stmt = $link->prepare("SELECT password FROM users WHERE (username = ? OR email = ?)");
 	$stmt->bind_param("ss", $email, $email);
-	$result = $stmt->execute();
-	echo $passwordInsert;
-	//var_dump($this->db->error);
-	$assoc_array = array();
-	while($row = $stmt->fetch()){
-		array_push($assoc_array, $row);
-	}
-	//echo $assoc_array[0];
-	//if(password_verify($_POST["password"], $assoc_array["password"]))
-   // $row=mysqli_fetch_array($query);
-    if (count($assoc_array) >= 1)
-    {
-        session_start();
-        $_SESSION['username'] = $username;
-        $_SESSION['password'] = $password;
-        $_SESSION['loggedin'] = true;
+	$stmt->execute();
+    $stmt->bind_result($password);
+    $stmt->store_result();
+    echo $password;
+    if($stmt->num_rows == 1 && $stmt->fetch() && password_verify($passwordInsert, $password)){
+
         header("location: login_success.php");
+
     }
-    else
-    {
+    else {
         echo '<script>invalid()</script>';
-    }   
+    }
+    $stmt->close();
+   // $row=mysqli_fetch_array($query);  
     /*
     $username = $_POST['usernameInput'];
     $password = $_POST['passwordInput'];
