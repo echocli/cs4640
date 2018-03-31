@@ -77,7 +77,7 @@
 			event.preventDefault();
 			var $this = $(this),
 				li = $this.closest('li');
-			li.find('> .fh5co-sub-menu').slideToggle(200);
+			li.find('> .fh5co-sub-menu').slideToggle('slow');
 		});
 
 	};
