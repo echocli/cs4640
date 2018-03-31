@@ -34,13 +34,29 @@ public class LoginController extends HttpServlet {
 		session.setAttribute("user", username);
 		session.setAttribute("firstname", firstname);
 		session.setAttribute("lastname", lastname);
-		session.setMaxInactiveInterval(30); // 30 seconds
+		
+		// Get session creation time.
+		Date createTime = new Date(session.getCreationTime());
+		 
+		// Get last access time of this web page.
+		Date lastAccessTime = new Date(session.getLastAccessedTime());
+
+		String title = "Welcome Back to my website";
+		Integer visitCount = new Integer(0);
+		String visitCountKey = new String("visitCount");
+		String userIDKey = new String("userID");
+      	//String userID = new String("ABCD");
+		// Check if this is new comer on your web page.
+		if (session.isNew()) {
+		 title = "Welcome to my website";
+		} else {
+		 visitCount = (Integer)session.getAttribute(visitCountKey);
+		 visitCount = visitCount + 1;
+		 //userID = (String)session.getAttribute(userIDKey);
+		}
+		session.setAttribute(visitCountKey,  visitCount);
+
 		response.sendRedirect("home.jsp");
 
-		else {
-			RequestDispatcher rd = request.getRequestDispatcher("login.html");
-			out.println("<font color=red>Either user name or password is wrong.</font>");
-			rd.include(request, response);
-		} // TODO Auto-generated method stub
 	}
 }
