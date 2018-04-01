@@ -3234,6 +3234,31 @@ input[type="search"] {
   margin-bottom: 15px;
 }
 
+}
+
+.sidenav {
+    width: 100%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    left-margin: -20;
+    background-color: #fdfbf3;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
 .radio,
 .checkbox {
   position: relative;
@@ -4992,9 +5017,15 @@ tbody.collapse.in {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (background-color: #fdfbf3){
   .navbar-left {
     float: left !important;
+    border-bottom: 4px dashed;
+    width: 100%; /* Set the width of the sidebar */
+    background-color: #fdfbf3;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 0px;
+    
   }
 
   .navbar-right {

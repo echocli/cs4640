@@ -130,32 +130,6 @@ figure {
   .fh5co-hero {
     height: 500px;
   }
-}
-
-.sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 500px; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
-    left: 0;
-    background-color: #111; /* Black */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 20px;
-}
-/* The navigation menu links */
-.sidenav a {
-    padding: 6px 8px 6px 16px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-    color: #f1f1f1;
-}
 
 /* Style page content */
 .main {
@@ -386,6 +360,32 @@ figure {
 .sf-arrows ul .sfHover > .sf-with-ul:after {
   border-left-color: #ccc;
 }
+
+}
+
+.sidenav {
+    width: 100%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    left-margin: -20;
+    background-color: #fdfbf3;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
 
 #fh5co-header-section {
   padding: 0;
@@ -1293,4 +1293,12 @@ h3.heading-section:before {
   background: url(../images/hourglass.svg) center no-repeat #222222;
 }
 
+.slider{
+    position:absolute;
+    left:50%;top:50%;
+    margin-left:-100px;
+    margin-top:-100px;
+    cursor:pointer;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+}
 /*# sourceMappingURL=style.css.map */

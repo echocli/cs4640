@@ -120,6 +120,15 @@
 		
 
 	});
+  
+  // percent match slider
+  var slider = new ThumbControllers.CircularSlider({ color1: '#f80',max: 100, step: 1 });
+  
+  slider.setValue( 33 );
+  
+  slider.el.id='slider';
+  
+  document.body.appendChild( slider.el );
 
 
 }());

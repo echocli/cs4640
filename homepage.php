@@ -93,35 +93,9 @@ mysqli_close($link);
     <!-- end:header-top -->
 
 
-
-    <div id="fh5co-contact" class="animate-box">
-
-    <div class="container" style="width: 50%; align-content: center;">
-        <form action="" method="post" name="searchform" style="width: 100%;">
-            <div class="row" style="width: 100%;">
-                <div class="col-md-6" style="width: 100%;">
-                    <div class="form-group">
-                        <label> Find other users </label>
-                        <input type="text" class="form-control" name="usersearch" id="usersearch" maxlength="50"/>
-                    </div>
-                </div>
-    </div>
-    <div class="row">
-            <div class="col-md-12" style="text-align: center; width: 100%;">
-                <div class="form-group">
-                    <input id="submitbtn" name="submitbtn" type="submit" value="Search" class="btn btn-primary" >
-                </div>
-            </div>
-        </div>
-        </form>
-        </div>
-    </div>
-
-
-
-
     <!-- Sidebar -->
-    <div class="sidenav">
+    <div class="navbar-left">
+        <h3> Preferences </h3>
         <u1>
             <li><a href="#">Hobbies</a></li>
             <li><a href="#">TV and Movies</a></li>
@@ -189,50 +163,101 @@ mysqli_close($link);
     </div>
     </div>
 
-    <!-- fh5co-content-section -->
+    <!-- Preferences -->
     <div id="fh5co-blog-section"  style="background-color:#FFFFFF">
-        <div class="container" >
+        <div class="container">
+
             <div class="row">
                 <div class="col-lg-3 col-sm-12 animate-box" >
                     <h3> Your Preferences </h3>
                 </div>
-                <div class="col-lg-9 col-sm-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4" >
-                            <div class="fh5co-blog animate-box">
-                                <a class="image-popup" >
-                                    <div class="prod-title">
-                                        <h3>category 1</h3>
-                                            <p> </p>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-9 col-sm-12" >
+                    <div class="form-group">
+                        <div id="fh5co-contact" class="animate-box">
+                            <label> Education </label>
+                            <!-- education dropdown -->
+                                <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
+                                    <div class="container" style="width: 100%; align-content: center; ">
+                                        <form action="" method="post" name="edutype">
+                                            <div class="col-md-6" style="width: 100%;">
+                                                <div class="form-group">
+                                                    <label> Set desired education level for your match </label>
+                                                    <div class="select-style">
+                                                    <select required id="edu" name="edu">
+                                                        <option value="" disabled selected>Select education</option>
+                                                        <option value="high school">high school</option>
+                                                        <option value="associate's degree">associate</option>
+                                                        <option value="bachelor's degree">bachelor</option>
+                                                        <option value="master's degree">master</option>
+                                                        <option value="doctoral degree">doctoral</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+<h3 style="width:50%"> Percent Match: </h3>
+                                                <div class="slider" style="width:100%">
+                                            </div>
+                                        </form>
                                     </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="fh5co-blog animate-box">
-                                <a class="image-popup">
-                                    <div class="prod-title">
-                                        <h3>category 2</h3>
-                                            <p> </p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="fh5co-blog animate-box">
-                                <a class="image-popup">
-                                    <div class="prod-title">
-                                        <h3>category 3</h3>
-                                            <p> </p>
-                                    </div>
-                                </a>
-                            </div>
+                                </div>
+                            <!-- end education dropdown -->
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-9 col-sm-12">
+                    <div class="form-group">
+                        <div id="fh5co-contact" class="animate-box">
+                            <label> Movies </label>
+                            <!-- Search for movies -->
+                                <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
+                                    <div class="container" style="width: 100%; align-content: center; ">
+                                        <form action="" method="post" name="moviepref">
+                                            <div class="col-md-6" style="width: 100%;">
+                                                <div class="form-group">
+                                                    <label> Search for movies you enjoy </label>
+                                                        <input type="text" class="form-control" name="movie-search" id="movie-search" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div
+                                </div>
+                            <!-- End of movie search -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-9 col-sm-12">
+                    <div class="form-group">
+                        <div id="fh5co-contact" class="animate-box">
+                            <label> Artists </label>
+                            <!-- Search for Artists -->
+                                <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
+                                    <div class="container" style="width: 100%; align-content: center; ">
+                                        <form action="" method="post" name="artistpref">
+                                            <div class="col-md-6" style="width: 100%;">
+                                                <div class="form-group">
+                                                    <label> Search for artists you like </label>
+                                                        <input type="text" class="form-control" name="artist-search" id="artist-search" />
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            <!-- End of artist search -->
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
+
 
     <!-- footer -->
 

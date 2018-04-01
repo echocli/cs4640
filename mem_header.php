@@ -30,7 +30,6 @@
 						<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-                            Welcome, <?php echo $_POST["username"]; ?>
 							<li><a href="homepage.php">Home</a>
                             <li><a href="Matches.php">Matches</a></li>
                             <li><a href="Settings.php">Settings</a></li>

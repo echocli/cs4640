@@ -258,5 +258,6 @@
 		onIdle: $.noop,
 		onDestroy: $.noop
 	};
+ 
 
 })(jQuery, window);
