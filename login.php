@@ -26,7 +26,9 @@ function invalid()
         $stmt->store_result();
         echo $password;
         if($stmt->num_rows == 1 && $stmt->fetch() && password_verify($passwordInsert, $password)){
+            
             header("location: login_success.php");
+            
         }
         else {
             echo '<script>invalid()</script>';
