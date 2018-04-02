@@ -6,7 +6,7 @@ function invalid()
 </script>
 
 <?php
-    $link = mysqli_connect("localhost", "root", "p", "baewatch");
+    $link = mysqli_connect("localhost", "yuyitaylor", "demeyuma1", "baewatch");
     
     // Check connection
     if($link === false){
@@ -138,7 +138,7 @@ Facebook: 		https://www.facebook.com/fh5co
 <div id="fh5co-contact" class="animate-box">
 
 <div class="container" style="width: 50%; align-content: center;">
-<form action="" method="post" name="signupform" style="width: 100%;">
+<form method="post" action="loginController" name="signupform" style="width: 100%;">
 <div class="row" style="width: 100%;">
 <div class="col-md-6" style="width: 100%;">
 <div class="form-group">
@@ -159,7 +159,7 @@ Facebook: 		https://www.facebook.com/fh5co
 <div class="row">
 <div class="col-md-12" style="text-align: center; width: 100%;">
 <div class="form-group">
-<input id="submitbtn" name="submitbtn" type="submit" value="Login" class="btn btn-primary" >
+<input id="submitbtn" name="submitbtn" type="submit" value="login" class="btn btn-primary" >
 </div>
 </div>
 </div>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.*;
 
 /**
  * Servlet implementation class Session
@@ -21,7 +22,29 @@ public class LoginController extends HttpServlet {
         
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+        String email = request.getParameter("email");
+        String pwd = request.getParameter("password");
         
+        String url = "localhost/cs4640/homepage.php";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javademo", "root", "");
+            PreparedStatement pst = conn.prepareStatement("Select email,password from users where email=? and password=?");
+            pst.setString(1, email);
+            pst.setString(2, pwd);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                response.sendRedirect(url);
+            }
+            else {
+                out.println("Incorrect login credentials");
+            }
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        
+
         String username = request.getParameter("username");
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");

@@ -92,6 +92,8 @@ mysqli_close($link);
         </div>
     <!-- end:header-top -->
 
+    <h1> Welcome <?php echo $_POST["firstname"]; ?></h1>
+    <br>
 
     <!-- Sidebar -->
     <div class="navbar-left">
