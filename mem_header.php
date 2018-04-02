@@ -63,9 +63,7 @@
 							-->
 							<li><a href="about.php">About</a></li>
 							<li>
-								<form action="Logout" method="post">
-									<input type="submit" value="Logout">
-								</form>
+								<a href="logout.php">Logout</a></li>
 							</li>
 							<!--<li><a href="contact.html">Contact</a></li>-->
 						</ul>

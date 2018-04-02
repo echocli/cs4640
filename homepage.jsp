@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
+<%@ page session="true" %>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -60,13 +61,11 @@ pageEncoding="ISO-8859-1"%>
             <h2 style="padding-top: 0.5em;">
             <%
                 if (session != null) {
-                    if (session.getAttribute("user") != null) {
-                        String name = (String) session.getAttribute("username"); %>
-                        Hello, <%name%> </h2>
+                  
+                    String name = (String)request.getAttribute("username"); %>
+                        Hello, <%=name%> </h2>
                     <%
-                    } else {
-                        response.sendRedirect("login.php");
-                    }
+                    
                 }
             %>
         </div>
@@ -74,10 +73,6 @@ pageEncoding="ISO-8859-1"%>
 
 </div>
 <!-- end:header-top -->
-
-
-
-<h1> Welcome <?php echo $_POST["firstname"]; ?></h1>
 <br>
 
 <!-- Sidebar -->
@@ -248,7 +243,7 @@ pageEncoding="ISO-8859-1"%>
 
 <!-- footer -->
 
-<?php include 'nonmem_footer.php';?>
+<jsp:include page="mem_footer.php"/>
 
 </div>
 <!-- END fh5co-page -->

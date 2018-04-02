@@ -10,9 +10,9 @@
 								<li><a href="index.php">Home</a></li>
 								<li><a href="about.php">About Us</a></li>
 								<li>
-									<form action="Logout" method="post">
-										<input type="submit" value="Logout">
-									</form>
+
+								<a href="logout.php">Logout</a>
+							
 								</li>
 							</ul>
 						</div>

@@ -24,10 +24,23 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
 	$stmt->execute();
     $stmt->bind_result($password);
     $stmt->store_result();
-    echo $password;
+    //echo $password;
     if($stmt->num_rows == 1 && $stmt->fetch() && password_verify($passwordInsert, $password)){
-
-        header("location: login_success.php");
+        
+        session_start();
+        $_SESSION['username'] = $email;
+        $stmt = $link->prepare("SELECT firstname FROM users WHERE (username = ? OR email = ?)");
+		$stmt->bind_param("ss", $email, $email);
+		$stmt->execute();
+	    $stmt->bind_result($firstname);
+	    $stmt->store_result();
+	    echo $firstname;
+		$_SESSION['firstname'] = $firstname;
+		//$lastname = $row['lastname'];
+		//$_SESSION['lastname'] = $lastname;
+		//echo "hi";
+		//echo "$lastname";
+		header("location: loginPass.php");
 
     }
     else {
@@ -137,35 +150,35 @@ mysqli_close($link);
 
 		<div id="fh5co-contact" class="animate-box">
 
-<div class="container" style="width: 50%; align-content: center;">
-				<form action="" method="post" name="signupform" style="width: 100%;">
-					<div class="row" style="width: 100%;">
-						<div class="col-md-6" style="width: 100%;">
-							<div class="form-group">
-								<label> Email or Username</label>
-								<!--<label hidden id="email_err" style="color: red; padding-left: 1em;"> Email must be valid </label>	-->
-								<input type="text" class="form-control" name="email" id="email" maxlength="50"/>
-							</div>
+	<div class="container" style="width: 50%; align-content: center;">
+		<form action="" method="post" name="signupform" style="width: 100%;">
+				<div class="row" style="width: 100%;">
+					<div class="col-md-6" style="width: 100%;">
+						<div class="form-group">
+							<label> Email or Username</label>
+							<!--<label hidden id="email_err" style="color: red; padding-left: 1em;"> Email must be valid </label>	-->
+							<input type="text" class="form-control" name="email" id="email" maxlength="50"/>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-6" style="width: 95.5%;">
-							<div class="form-group">
-								<label>Password</label>
-								<input type="password" class="form-control" required name="password" id="password" minlength="8"/>
-							</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6" style="width: 95.5%;">
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" class="form-control" required name="password" id="password" minlength="8"/>
 						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-12" style="text-align: center; width: 100%;">
-							<div class="form-group">
-								<input id="submitbtn" name="submitbtn" type="submit" value="Login" class="btn btn-primary" >
-							</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" style="text-align: center; width: 100%;">
+						<div class="form-group">
+							<input id="submitbtn" name="submitbtn" type="submit" value="Login" class="btn btn-primary" >
 						</div>
 					</div>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
+	</div>
 		<!-- START a project -->
 
 		<?php include 'nonmem_footer.php';?>
