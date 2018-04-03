@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 pageEncoding="ISO-8859-1"%>
-<%@ page session="true" %>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -59,13 +59,16 @@ pageEncoding="ISO-8859-1"%>
     <div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
         <div class="desc animate-box">
             <h2 style="padding-top: 0.5em;">
-            <%
+            <%String name = (String)request.getAttribute("username");
                 if (session != null) {
                   
-                    String name = (String)request.getAttribute("username"); %>
-                        Hello, <%=name%> </h2>
+                     %>
+                        Hello, <%System.out.print((String)request.getAttribute("username"));%> </h2>
                     <%
                     
+                }
+                else{
+                    response.sendRedirect("http://127.0.0.1:8080/JavaBridge/cs4640/login.php");
                 }
             %>
         </div>
@@ -76,14 +79,15 @@ pageEncoding="ISO-8859-1"%>
 <br>
 
 <!-- Sidebar -->
-<div class="navbar-left">
-    <h3> Preferences </h3>
-    <u1>
-        <li><a href="#">Hobbies</a></li>
-        <li><a href="#">TV and Movies</a></li>
-        <li><a href="#">Music</a></li>
-        <li><a href="#">Books</a></li>
-    </ul>
+<div class="fh5co-sub-ddown">
+<h3> Preferences </h3>
+<ul class="fh5co-sub-menu">
+    <li><a href="#">Hobbies</a></li>
+    <li><a href="#">TV and Movies</a></li>
+    <li><a href="#">Music</a></li>
+    <li><a href="#">Books</a></li>
+   
+</ul>
 </div>
 
 
