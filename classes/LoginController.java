@@ -16,6 +16,8 @@ public class LoginController extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 
+		//request.getRequestDispatcher("../../../JavaBridge/cs4640/loginPass.php").include(request, response);
+
 		String username = request.getParameter("username");
 		//String firstname = request.getParameter("firstname");
 		//String lastname = request.getParameter("lastname");
@@ -25,7 +27,7 @@ public class LoginController extends HttpServlet {
 		HttpSession session = request.getSession(true); // reuse existing
 														// session if exist
 														// or create one
-		session.setAttribute(username, username);
+		session.setAttribute("username", username);
 		//session.setAttribute("firstname", firstname);
 		//session.setAttribute("lastname", lastname);
 		

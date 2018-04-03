@@ -23,11 +23,13 @@ public class LogoutController extends HttpServlet {
               
             //request.getRequestDispatcher("http://127.0.0.1:8080/JavaBridge/cs4640/homepage.jsp").include(request, response);  
               
-            HttpSession session=request.getSession();  
+            HttpSession session=request.getSession(false);  
             session.invalidate();  
-              
+            
             out.print("You are successfully logged out!");  
               
             out.close();  
+            //response.sendRedirect("../../../JavaBridge/cs4640/index.php"); 
+            
     }  
 }  
