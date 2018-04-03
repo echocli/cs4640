@@ -177,6 +177,7 @@ mysqli_close($link);
 					</div>
 				</div>
 			</form>
+			<a href="signup.php">Don't have an account? Sign up</a>
 		</div>
 	</div>
 		<!-- START a project -->

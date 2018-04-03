@@ -412,6 +412,7 @@ mysqli_close($link);
 						</div>
 					</div>
 				</form>
+				<a href="login.php">Already have an account? Login</a>
 			</div>
 		</div>
 		<!-- START a project -->

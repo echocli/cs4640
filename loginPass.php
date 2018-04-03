@@ -20,7 +20,7 @@ window.onload = function(){
 	*/
 ?>
 
-<form hidden action="/examples/servlets/servlet/LoginController" method="POST" name="signup">
+<form hidden action="/examples/servlets/servlet/LoginController" method="GET" name="signup">
 	<div class="form-group">
 		<input type="text" value=<?php echo $_SESSION['username']; ?> class="form-control" name="username" id="username"/>
 <!--<input  type="text" value="' .$_SESSION['firstname'].'"class="form-control" required name="firstname" id="firstname"/>
