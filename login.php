@@ -182,7 +182,7 @@ mysqli_close($link);
 	</div>
 		<!-- START a project -->
 
-		<?php include 'nonmem_footer.php';?>
+	<?php include 'nonmem_footer.php';?>
 	
 
 	</div>
