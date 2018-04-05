@@ -1,9 +1,0 @@
--Edits to style.css and html files to make template more compact, less whitespace, removed some parts didn’t want
--Turned index.html and about.html into .php
--Turned header and footer code into php files to ‘include’ at every page, edited code to include links we want
--Put jQuery function at top of header.php to show 'active' <li>
--Put inline css style in about.php fh5co-cover because want it to be shorter than index.php's cover
--Put inline css style in about.php on 'Meet Us' section to make smaller and less whitespace
--Changed h2 color in fh5co-sliver and fh5co-testimonial in style.css
--Lots of changes to contact.html. Turned into signup.php. Used jQuery to validate user input. Also have html regex checks (will probably be taken out later).
--Added select and label to style.css
