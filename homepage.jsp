@@ -59,10 +59,10 @@ pageEncoding="ISO-8859-1"%>
     <div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
         <div class="desc animate-box">
             <h2 style="padding-top: 0.5em;">
-            <%String name = (String)request.getAttribute("username");
+            <% String name = (String)session.getAttribute("username");
                 if (session != null) {
                     %>
-                        Hello, <%System.out.print((String) name); %> </h2>
+                        Hello, <%= name %> </h2>
                     <%  
                 }
                 else{

@@ -33,7 +33,7 @@ public class LoginController extends HttpServlet {
 		//String lastname = request.getParameter("lastname");
 
 		
-		//out.print("Welcome, " + un);
+		out.print("Welcome, " + username);
 		HttpSession session = request.getSession(true); // reuse existing
 														// session if exist
 														// or create one
