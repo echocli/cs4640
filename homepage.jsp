@@ -59,15 +59,11 @@ pageEncoding="ISO-8859-1"%>
     <div class="fh5co-cover text-center" style="color: #F2E9E5; height: 300px;">
         <div class="desc animate-box">
             <h2 style="padding-top: 0.5em;">
-            <% String name = (String)session.getAttribute("username");
-                if (session != null) {
-                    %>
-                        Hello, <%= name %> </h2>
-                    <%  
-                }
-                else{
-                    response.sendRedirect("login.php");
-                }
+            <% String user = (String)session.getAttribute("user");
+                if (session != null) { %>
+                    <% String email = (String)session.getAttribute("user"); %>
+                    <h1> Hello, <%= user %> </h1>
+               <% }
             %>
         </div>
     </div>

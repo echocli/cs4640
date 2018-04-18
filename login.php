@@ -29,18 +29,17 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
         
         session_start();
         $_SESSION['username'] = $email;
-        $stmt = $link->prepare("SELECT firstname FROM users WHERE (username = ? OR email = ?)");
-		$stmt->bind_param("ss", $email, $email);
-		$stmt->execute();
-	    $stmt->bind_result($firstname);
-	    $stmt->store_result();
+        $stmt_two = $link->prepare("SELECT firstname FROM users WHERE username = ? OR email = ?");
+		$stmt_two->bind_param("ss", $email, $email);
+		$stmt_two->execute();
+	    $stmt_two->bind_result($firstname);
+	    $stmt_two->store_result();
 	    echo $firstname;
 		$_SESSION['firstname'] = $firstname;
 		//$lastname = $row['lastname'];
 		//$_SESSION['lastname'] = $lastname;
-		//echo "hi";
-		//echo "$lastname";
-		header("location: loginPass.php");
+		echo "hi";
+		header("location: middle.jsp?user=".$email);
 
     }
     else {
