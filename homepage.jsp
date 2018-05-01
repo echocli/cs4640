@@ -139,11 +139,11 @@ pageEncoding="ISO-8859-1"%>
             <div class="col-md-6" style="width: 100%;">
                 <h3> Titles/Series/Authors </h3>
                 <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required 
-                ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()"/>
+                ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()" ng-bind="bookInput"/>
                 
                 <table>
-                    <tr ng-repeat="names in bookNames">
-                        <td>{{names.name}}</td>
+                    <tr ng-repeat="book in bookNames">
+                        <td>{{book.name}}</td>
                     </tr>
                     <!--<tr>
                         <td ng-bind-html="bookText">Centro comercial Moctezuma</td>
@@ -189,7 +189,7 @@ document.getElementById("defaultOpen").click();
 
 var app = angular.module("bookApp", ['ngSanitize']);
 app.controller("bookCtrl", function($scope) {
-    $scope.bookText = "<tr> <td> test </td> </tr>";
+    
 
     /*$scope.bookEnter = function() {
         $scope.bookText += "<tr> <td>" + $scope.booksInput + " </td> </tr>";
@@ -199,6 +199,7 @@ app.controller("bookCtrl", function($scope) {
                         {'name':'Infosys Technologies'},
                         ];
     $scope.bookEnter = function(){     
+        alert($scope.bookInput);
         $scope.bookNames.push({ 'name':$scope.bookInput });
         
     };
