@@ -6,7 +6,7 @@ pageEncoding="ISO-8859-1"%>
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title>Render &mdash; 100% Free Fully Responsive HTML5 Template by FREEHTML5.co</title>
@@ -66,10 +66,11 @@ pageEncoding="ISO-8859-1"%>
                 if (user != null) { %>
                     <% String email = (String)session.getAttribute("user"); %>
                     <h1> Hello, <%= user %> </h1>
-               <% } %>
-               <%-- else {
+               <% }
+               else {
                     response.sendRedirect("login.php");
-                } --%>
+                } %>
+            </h2>
         </div>
     </div>
 
@@ -84,6 +85,8 @@ pageEncoding="ISO-8859-1"%>
   <button class="tablinks" onclick="openCity(event, 'Movies')">Movies</button>
 </div>
 
+
+<div class="container" style="align-self: center;">
 <form action="" method="post" name="form" style="width: 100%;">
     <div id="General" class="tabcontent">
         <div class="row" style="width: 100%; padding: 1em 1em;">
@@ -133,41 +136,45 @@ pageEncoding="ISO-8859-1"%>
     </div>
 
 
-<div ng-app="myApp" ng-controller="myCtrl">
-    <div id="Books" class="tabcontent">
-        <div class="row" style="width: 100%; padding: 1em 1em;">
-            <div class="col-md-6" style="width: 100%;">
-                <h3> Titles/Series/Authors </h3>
-                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required
-                ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()" ng-bind="bookInput"/>
-                
-                <table>
-                    <tr ng-repeat="book in bookNames">
-                        <td>{{book.name}}</td>
-                    </tr>
-                </table>
+    <div ng-app="myApp" ng-controller="myCtrl">
 
+        <div id="Books" class="tabcontent">
+            <div class="row" style="width: 100%; padding: 1em 1em;">
+                <div class="col-md-6" style="width: 100%;">
+                    <h3> Titles/Series/Authors </h3>
+                    <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required
+                    ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()" ng-bind="bookInput"/>
+                    
+                    <table>
+                        <tr ng-repeat="book in bookNames">
+                            <td>{{book.name}}</td>
+                        </tr>
+                    </table>
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="Movies" class="tabcontent">
-        <div class="row" style="width: 100%; padding: 1em 1em;">
-            <div class="col-md-6" style="width: 100%;">
-                <h3> Titles/Series/Directors </h3>
-                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="moviesInput" id="moviesInput" required ng-model="moviesInput" ng-keydown="$event.keyCode === 13 && movieEnter()" ng-bind="moviesInput"/>
-                <table>
-                    <tr ng-repeat="movie in movieNames">
-                        <td>{{movie.name}}</td>
-                    </tr>
-                </table>
+        <div id="Movies" class="tabcontent">
+            <div class="row" style="width: 100%; padding: 1em 1em;">
+                <div class="col-md-6" style="width: 100%;">
+                    <h3> Titles/Series/Directors </h3>
+                    <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="moviesInput" id="moviesInput" required ng-model="moviesInput" ng-keydown="$event.keyCode === 13 && movieEnter()" ng-bind="moviesInput"/>
+                    <table>
+                        <tr ng-repeat="movie in movieNames">
+                            <td>{{movie.name}}</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
+    </div>
 </form>
 
+</div>
+
+<jsp:include page="mem_footer.php"/>
 <script>
 function openCity(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -210,175 +217,14 @@ app.controller("myCtrl", function($scope) {
     };
 });
 
-
-
-
-
 </script>
 
 
-<!--Match section-->
-<div id="fh5co-services-section" class="border-bottom">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 animate-box">
-                <h3 size="40px">Your Matches</h3>
-            </div>
-        <div class="col-md-9 col-sm-12">
-        <div class="row">
-
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-browser"></i></span>
-                    <h3>User 1</h3>
-                    <p>user bio and stats</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-mobile"></i></span>
-                    <h3>User 2</h3>
-                    <p>user bio and stats</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-tools"></i></span>
-                        <h3>User 3</h3>
-                        <p>user bio and stats</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-video"></i></span>
-                    <h3>User 4</h3>
-                    <p>user bio and stats</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-search"></i></span>
-                    <h3>User 5</h3>
-                    <p>user bio and stats</p>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-4">
-            <div class="services animate-box">
-                <span><i class="icon-cloud"></i></span>
-                    <h3>User 5</h3>
-                    <p>user bio and stats</p>
-            </div>
-        </div>
-        </div>
-    </div>
-</div>
-</div>
-
-<!-- Preferences -->
-<div id="fh5co-blog-section"  style="background-color:#FFFFFF">
-    <div class="container">
-
-        <div class="row">
-            <div class="col-lg-3 col-sm-12 animate-box" >
-                <h3> Your Preferences </h3>
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-lg-9 col-sm-12" >
-                <div class="form-group">
-                    <div id="fh5co-contact" class="animate-box">
-                        <label> Education </label>
-                        <!-- education dropdown -->
-                            <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
-                                <div class="container" style="width: 100%; align-content: center; ">
-                                    <form action="" method="post" name="edutype">
-                                        <div class="col-md-6" style="width: 100%;">
-                                            <div class="form-group">
-                                                <label> Set desired education level for your match </label>
-                                                <div class="select-style">
-                                                <select required id="edu" name="edu">
-                                                    <option value="" disabled selected>Select education</option>
-                                                    <option value="high school">high school</option>
-                                                    <option value="associate's degree">associate</option>
-                                                    <option value="bachelor's degree">bachelor</option>
-                                                    <option value="master's degree">master</option>
-                                                    <option value="doctoral degree">doctoral</option>
-                                                </select>
-                                                </div>
-                                            </div>
-<h3 style="width:50%"> Percent Match: </h3>
-                                            <div class="slider" style="width:100%">
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        <!-- end education dropdown -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-9 col-sm-12">
-                <div class="form-group">
-                    <div id="fh5co-contact" class="animate-box">
-                        <label> Movies </label>
-                        <!-- Search for movies -->
-                            <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
-                                <div class="container" style="width: 100%; align-content: center; ">
-                                    <form action="" method="post" name="moviepref">
-                                        <div class="col-md-6" style="width: 100%;">
-                                            <div class="form-group">
-                                                <label> Search for movies you enjoy </label>
-                                                    <input type="text" class="form-control" name="movie-search" id="movie-search" />
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div
-                            </div>
-                        <!-- End of movie search -->
-                    </div>
-                </div>
-            </div>
 
 
-            <div class="col-lg-9 col-sm-12">
-                <div class="form-group">
-                    <div id="fh5co-contact" class="animate-box">
-                        <label> Artists </label>
-                        <!-- Search for Artists -->
-                            <div id="fh5co-contact" class="animate-box" style="background-color:#fdfbf3">
-                                <div class="container" style="width: 100%; align-content: center; ">
-                                    <form action="" method="post" name="artistpref">
-                                        <div class="col-md-6" style="width: 100%;">
-                                            <div class="form-group">
-                                                <label> Search for artists you like </label>
-                                                    <input type="text" class="form-control" name="artist-search" id="artist-search" />
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        <!-- End of artist search -->
-                    </div>
-                </div>
-            </div>
 
 
-        </div>
-    </div>
-</div>
 
-
-<!-- footer -->
-
-<jsp:include page="mem_footer.php"/>
-
-</div>
-<!-- END fh5co-page -->
-
-</div>
 <!-- END fh5co-wrapper -->
 
 <!-- jQuery -->
@@ -396,6 +242,5 @@ app.controller("myCtrl", function($scope) {
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js"></script>
 
-</body>
 </html>
 
