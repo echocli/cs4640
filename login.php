@@ -39,7 +39,7 @@ if ( isset($_POST["submitbtn"]) && isset($_POST['email']) && isset($_POST['passw
 		//$lastname = $row['lastname'];
 		//$_SESSION['lastname'] = $lastname;
 		echo "hi";
-		header("location: middle.jsp?user=".$email);
+		header("location: login.jsp?user=".$email);
 
     }
     else {

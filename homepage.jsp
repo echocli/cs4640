@@ -52,6 +52,9 @@ pageEncoding="ISO-8859-1"%>
 
 <!-- Header -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+
 <jsp:include page="mem_header.php"/>
 
 <div class="fh5co-hero" style="height: 300px;">
@@ -60,11 +63,13 @@ pageEncoding="ISO-8859-1"%>
         <div class="desc animate-box">
             <h2 style="padding-top: 0.5em;">
             <% String user = (String)session.getAttribute("user");
-                if (session != null) { %>
+                if (user != null) { %>
                     <% String email = (String)session.getAttribute("user"); %>
                     <h1> Hello, <%= user %> </h1>
-               <% }
-            %>
+               <% } %>
+               <%-- else {
+                    response.sendRedirect("login.php");
+                } --%>
         </div>
     </div>
 
@@ -73,16 +78,124 @@ pageEncoding="ISO-8859-1"%>
 <br>
 
 <!-- Sidebar -->
-<div class="fh5co-sub-ddown">
-<h3> Preferences </h3>
-<ul class="fh5co-sub-menu">
-    <li><a href="#">Hobbies</a></li>
-    <li><a href="#">TV and Movies</a></li>
-    <li><a href="#">Music</a></li>
-    <li><a href="#">Books</a></li>
-   
-</ul>
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'General')" id="defaultOpen">General</button>
+  <button class="tablinks" onclick="openCity(event, 'Books')">Books</button>
+  <button class="tablinks" onclick="openCity(event, 'Movies')">Movies</button>
 </div>
+
+<form action="" method="post" name="form" style="width: 100%;">
+    <div id="General" class="tabcontent">
+        <div class="row" style="width: 100%; padding: 1em 1em;">
+            <div class="col-md-6" style="width: 100%;">
+                <h3> Personal </h3>
+                <label style="float: left; width: 20%;"> Age Range </label>
+                <input type="number" style="width: 10%; float: left;" class="form-control" name="ageMin" id="ageMin" min="18" required />
+                <label style="float: left; padding: 0 0.5em;"> to </label>
+                <input type="number" style="width: 10%; float: left;" class="form-control" name="ageMax" id="ageMax" max="110" required/>
+            </div>
+        </div>
+        <div class="row" style="padding: 1em 1em;">
+            <div class="col-md-6" style="width: 100%;">
+                <label style="float: left; padding-right: 1.5em;"> Sexual Preference </label>
+                 <select style="float: left;" required id="educationLevel" name="educationLevel">
+                    <option value="" disabled selected>Select</option>
+                    <option value="women">Women</option>
+                    <option value="men">Men</option>
+                    <option value="both">Both</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" style="padding: 1em 1em;">
+            <div class="col-md-6" style="width: 97%;">
+                <label style="float: left; width: 20%;"> Height Range </label>
+                <input type="number" style="width: 10%; float: left;" class="form-control" name="heightMin" id="heightMin" required/>
+                <label style="float: left; padding: 0 0.5em;"> to </label>
+                <input type="number" style="width: 10%; float: left;" class="form-control" name="heightMax" id="heightMax" required/>
+                <label style="float: left; padding: 0 0.5em;"> CM </label>
+            </div>
+        </div>
+        <div class="row" style="padding: 1em 1em;">
+            <div class="col-md-6" style="width: 100%;">
+                <h3> Education </h3>
+                <label style="float: left; padding-right: 1.5em;"> Highest Degree Earned </label>
+                 <select style="float: left;" required id="educationLevel" name="educationLevel">
+                    <option value="" disabled selected>Select</option>
+                    <option value="high school">High School</option>
+                    <option value="associates">Associate's</option>
+                    <option value="bachelors">Bachelor's</option>
+                    <option value="masters">Master's</option>
+                    <option value="doctoral">Doctoral</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="Books" class="tabcontent" ng-app="bookApp" ng-controller="bookCtrl">
+        <div class="row" style="width: 100%; padding: 1em 1em;">
+            <div class="col-md-6" style="width: 100%;">
+                <h3> Titles/Series/Authors </h3>
+                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required 
+                ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()"/>
+                
+                <table>
+                 <div ng-bind-html="bookText"></div>
+                  <tr>
+                    <td>Centro comercial Moctezuma</td>
+                  </tr>
+                  <tr>
+                    <td>Ernst Handel</td>
+                  </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="Movies" class="tabcontent">
+        <div class="row" style="width: 100%; padding: 1em 1em;">
+            <div class="col-md-6" style="width: 100%;">
+                <h3> Titles/Series/Directors </h3>
+                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="moviesInput" id="moviesInput" required
+                ng-model="moviesInput"/>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<script>
+function openCity(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+var app = angular.module("bookApp", ['ngSanitize']);
+app.controller("bookCtrl", function($scope) {
+    $scope.bookText = "<tr> <td> test </td> </tr>";
+
+    $scope.bookEnter = function() {
+        $scope.bookText += "<tr> <td>" + $scope.booksInput + " </td> </tr>";
+    }
+});
+
+
+
+</script>
 
 
 <!--Match section-->
