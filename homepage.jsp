@@ -133,24 +133,18 @@ pageEncoding="ISO-8859-1"%>
     </div>
 
 
-
-    <div id="Books" class="tabcontent" ng-app="bookApp" ng-controller="bookCtrl">
+<div ng-app="myApp" ng-controller="myCtrl">
+    <div id="Books" class="tabcontent">
         <div class="row" style="width: 100%; padding: 1em 1em;">
             <div class="col-md-6" style="width: 100%;">
                 <h3> Titles/Series/Authors </h3>
-                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required 
+                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="booksInput" id="booksInput" required
                 ng-model="booksInput" ng-keydown="$event.keyCode === 13 && bookEnter()" ng-bind="bookInput"/>
                 
                 <table>
                     <tr ng-repeat="book in bookNames">
                         <td>{{book.name}}</td>
                     </tr>
-                    <!--<tr>
-                        <td ng-bind-html="bookText">Centro comercial Moctezuma</td>
-                    </tr>
-                    <tr>
-                        <td>Ernst Handel</td>
-                    </tr>-->
                 </table>
 
             </div>
@@ -161,11 +155,16 @@ pageEncoding="ISO-8859-1"%>
         <div class="row" style="width: 100%; padding: 1em 1em;">
             <div class="col-md-6" style="width: 100%;">
                 <h3> Titles/Series/Directors </h3>
-                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="moviesInput" id="moviesInput" required
-                ng-model="moviesInput"/>
+                <input type="text" placeholder="Search..." style="width: 60%; float: left;" class="form-control" name="moviesInput" id="moviesInput" required ng-model="moviesInput" ng-keydown="$event.keyCode === 13 && movieEnter()" ng-bind="moviesInput"/>
+                <table>
+                    <tr ng-repeat="movie in movieNames">
+                        <td>{{movie.name}}</td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
 </form>
 
@@ -187,23 +186,31 @@ function openCity(evt, tabName) {
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
 
-var app = angular.module("bookApp", ['ngSanitize']);
-app.controller("bookCtrl", function($scope) {
-    
-
-    /*$scope.bookEnter = function() {
-        $scope.bookText += "<tr> <td>" + $scope.booksInput + " </td> </tr>";
-    }*/
+var app = angular.module("myApp", ['ngSanitize']);
+app.controller("myCtrl", function($scope) {
 
     $scope.bookNames = [
-                        {'name':'Infosys Technologies'},
+                        {'name':'Harry Potter'},
                         ];
-    $scope.bookEnter = function(){     
-        alert($scope.bookInput);
-        $scope.bookNames.push({ 'name':$scope.bookInput });
+    $scope.bookEnter = function(){   
+        $scope.bookNames.push({ 'name':$scope.booksInput });
+        $scopes.bookInput = "";
+
+        
+    };
+
+    $scope.movieNames = [
+                        {'name':'Harry Potter'},
+                        ];
+
+    $scope.movieEnter = function(){   
+        $scope.movieNames.push({ 'name':$scope.moviesInput });
+        $scopes.moviesInput = "";
         
     };
 });
+
+
 
 
 
